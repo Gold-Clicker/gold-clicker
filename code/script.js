@@ -26,7 +26,7 @@ function one() {
   }
 }
 
-setInterval(hundred, 0.000000000000000000000000000000000000000000000001);
+setInterval(hundred, 0.0000000000000000000000000000000000000000000000001);
 function hundred() {
   if(val > 100 && val < 1000) {
     document.getElementById("start").innerHTML = "You are now the richest kid in the school.";
