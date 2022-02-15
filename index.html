@@ -11,9 +11,9 @@
   </head>
   <body onload="text()">
     <p id="p"></p>
-    <a href="./code/gold.html">Gold-Clicker</a>
+    <a id="a" href="./code/gold.html">Gold-Clicker</a>
     <script type="text/javascript">
-      document.getGetElementById("p").style.display = "none";
+      document.getGetElementById("a").style.display = "none";
       const i = 0;
       const text = "Looking for gold clicker, click the link below to go to Gold Clicker.";
       const speed = 50;
@@ -22,7 +22,7 @@
         document.getElementById("p").innerHTML += text.charAt(i);
         i++;
         setTimeout(text, speed);
-        setTimeout(document.getGetElementById("p").style.display = "block", 10000);
+        setTimeout(document.getGetElementById("a").style.display = "block", 10000);
        }
       }
     </script>
