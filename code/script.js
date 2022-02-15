@@ -2,7 +2,7 @@ function warn() {
   return "WARNING: You will lose your progress:";
 }
 //I May or May not update to have multiple JS files
-let val = 1000000;
+let val = 0;
 let add = 1;
 
 function upFunction() {
