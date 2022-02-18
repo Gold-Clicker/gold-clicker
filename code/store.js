@@ -1,6 +1,17 @@
+//Price Tags
+setInterval(Price, 100);
+function Price() {
+  document.getElementById("lp").innerHTML = "G" + Math.round(lemPrice);
+  document.getElementById("bp").innerHTML = "G" + Math.round(browPrice);
+  document.getElementById("walp").innerHTML = "G" + Math.round(wallPrice);
+  document.getElementById("worp").innerHTML = "G" + Math.round(workPrice);
+  document.getElementById("gp").innerHTML = "G" + Math.round(goldPrice);
+  document.getElementById("celp").innerHTML = "G" + Math.round(cellPrice);
+  document.getElementById("cryp").innerHTML = "G" + Math.round(cryPrice);
+}
 //Lemonades
 let lem = 0;
-let lemPrice = 30;
+let lemPrice = 10;
 function lemonade() {
   if (val >= lemPrice) {
     lem += 1;
@@ -33,7 +44,7 @@ function searchLem() {
 }
 //Brownies
 let brow = 0;
-let browPrice = 150;
+let browPrice = 100;
 function brownie() {
   if (val >= browPrice) {
     brow += 1;
@@ -135,7 +146,7 @@ function searchWork() {
 }
 //Gold Bars
 let gold = 0;
-let goldPrice = 50000;
+let goldPrice = 100000;
 function goldBar() {
   if(val >= goldPrice) {
     add += Math.round(Math.random() * 11) + 1;
@@ -167,8 +178,8 @@ function searchGold() {
   }
 }
 //Cell Upgrade, Hacks into CSS property | ONLY PURCHASABLE ONCE |
-cell = 0;
-cellPrice = 75000;
+let cell = 0;
+let cellPrice = 1000000;
 function cellCursor() {
   if(val >= cellPrice) {
     document.getElementById("body").style.cursor = "cell";
@@ -190,5 +201,38 @@ function cellRun() {
     document.getElementById("icellc").style.display = "block";
   } else {
     document.getElementById("icellc").style.display = "none";
+  }
+}
+//Crypto
+let cry = 0;
+let cryPrice = 10000000;
+function crypto() {
+  if(val >= cryPrice) {
+    add += add / 10;
+    val -= cryPrice;
+    cry += 1;
+    cryPrice -= 10
+    setInterval(cryRun, 1000)
+    setInterval(price, 100);
+    document.getElementById("cry").innerHTML = "&nbsp;Crypto Currencies: " + cry;
+  }
+  function price() {
+    document.getElementById("cryPrice").innerHTML = "&nbsp;Cost in Gold: " + cryPrice;
+  }
+  function cryRun() {
+    val += val / 10;
+  }
+}
+setInterval(searchCry, 100);
+function searchCry() {
+  if(val < cryPrice) {
+    document.getElementById("crypto").style.display = "none";
+  } else {
+    document.getElementById("crypto").style.display = "block";
+  }
+  if(cry < 1) {
+    document.getElementById("icrypto").style.display = "none";
+  } else {
+    document.getElementById("icrypto").style.display = "block";
   }
 }
