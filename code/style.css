@@ -8,6 +8,7 @@ body {
   font-family: monospace;
   color: white;
   text-align: left;
+  overflow: hidden;
 }
 button:hover {
   cursor: pointer;
@@ -16,17 +17,24 @@ a {
   float: left;
 }
 
+.price {
+  font-size: 25px;
+  color: #00ff04;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
 .divBars {
   overflow: scroll;
   left: 10px;
   border: thin solid white;
   width: 33%;
-  height: 275px;
+  height: 50vh;
   text-align: left;
   float: left;
 }
 .tab {
-  float: left;
   border: 3px inset yellow;
   background: black;
   color: yellow;
@@ -114,3 +122,4 @@ a {
   text-align: left;
   border: thin solid blue;
 }
+
