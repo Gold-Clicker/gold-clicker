@@ -36,56 +36,58 @@
     <hr class="invis">
     <hr class="invis">
     <div style="width:100%;height:30px;overflow:contain;">
-    <a style="float:left;" target="_blank" href="https://sevcaldona.editorx.io/gameconsole">Go to GameConsole here.</a>
     </div>
     <hr>
     <hr class="invis">
     
     
   <div id="case">
-    <button id="Dollar" onkeydown="upFunction()" onclick="upFunction()">G</button>
+    <button id="Dollar" onclick="upFunction()">G</button>
     <h2 id="add"></h2>
   </div>
   <hr class="invis">
   <hr class="invis">
-  <hr>
-  <div id="tabs">
-    <button class="tab" onclick="showAchieve()">Achievements</button>
-    <button style="display:none;" class="tab" onclick="showAbout()">About</button>
-    <button class="tab" onclick="showNews()">News</button>
-  </div>
-  <p id="updates">Updates Every Friday (unless there aren't any :)</p>
-  <hr>
-  <p id="effect"></p>
-  <div id="News"><p id="Updates"></p></div>
-  <hr class="invis">
+<hr>
   <div id="bigCase" class="tabcontent">
     <div id="store" class="divBars">
       <h1>&nbsp;Purchasable Items</h1>
       <hr>
+
       <button id="lemonade" class="sItem" onclick="lemonade()">
+        <p class="price" id="lp">G10</p>
         <img src="../images/lemonade.jpeg" alt="lemonade" style="width:50px;height:50px;">&nbsp;Lemonade
       </button>
       <hr>
       <button id="brownie" class="sItem" onclick="brownie()">
+        <p class="price" id="bp">G100</p>
         <img src="../images/brownie.jpeg" alt="brownie" style="width:50px;height:50px">&nbsp;Brownie
       </button>
       <hr>
       <button id="wallet" class="sItem" onclick="wallet()">
+        <p class="price" id="walp">G1000</p>
         <img src="../images/wallet.jpeg" alt="wallet" style="width:75px;height:75px">&nbsp;Wallet
       </button>
       <hr>
       <button id="worker" class="sItem" onclick="worker()">
+        <p class="price" id="worp">G10000</p>
         <img src="../images/worker.jpeg" alt="worker" style="width:70px;height:70px;">&nbsp;Worker
       </button>
       <hr>
       <button id="goldBar" class="sItem" onclick="goldBar()">
+        <p class="price" id="gp">G100000</p>
         <img src="../images/gold-bar.jpeg" alt="gold-bar" style="width:70px;height:70px;">&nbsp;Gold Bar
       </button>
       <hr>
       <button id="cell" class="sItem" onclick="cellCursor()">
+        <p class="price" id="celp">G1000000</p>
         <img src="../images/cell.jpeg" alt="cell-cursor" style="width:50px;height:50px;">&nbsp;
         Cursor Upgrade: Cell
+      </button>
+      <hr>
+      <button id="crypto" class="sItem" onclick="crypto()">
+        <p class="price" id="cryp">G10000000</p>
+        <img src="../images/crypto.jpeg" alt="crypto" style="width:50px;height:50px;">&nbsp;
+        $Crypto$
       </button>
       <hr>
     </div>
@@ -132,6 +134,14 @@
           &nbsp;+100 Gold per Click,<br>&nbsp;"Hacks into the code of the game <br>&nbsp;JUST to change the look of the cursor. Oh and also &nbsp;makes the game easier."</p>
         </div>
         <hr>
+        <div id="icrypto">
+          <p id="cry">&nbsp;Crypto Currencies: 0</p>
+          <p id="cryPrice">&nbsp;Cost in Gold: 10000000</p>
+          <p>&nbsp;+10% of your money per second<br>
+          &nbsp;+10% of Gold per Click<br>
+          &nbsp;"Gold Bar v2.0 :("</p>
+        </div>
+        <hr>
     </div>
     
     <div id="stats" class="divBars">
@@ -139,17 +149,11 @@
       <hr>
       <p id="cps"></p>
       <p id="val"></p>
-      <p id="nxt">
-        &nbsp;Item Starting Price:<br>
-        &nbsp;&nbsp;-G30<br>
-        &nbsp;&nbsp;-G150<br>
-        &nbsp;&nbsp;-G1,000<br>
-        &nbsp;&nbsp;-G10,000<br>
-        &nbsp;&nbsp;-G50,000<br>
-        &nbsp;&nbsp;-G75,000<br>
-      </p>
+      <p>&nbsp;Item values star of at 10, and then increases times &nbsp;ten.<br>
+      &nbsp;10, 100, 1,000, 10,000, 100,000, etc.</p>
     </div>
   </div>
 </div>
   </body>
 </html>
+
