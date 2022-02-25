@@ -1,31 +1,209 @@
-<!Doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-  <link rel="stylesheet" href="./code/style.css">
-  
+    <!---Links to files-->
+    <link rel="stylesheet" href="./code/style.css" type="text/css">
+    <link rel="icon" href="./images/logo.jpeg" type="image/jpeg">
+    <!--Info-->
     <meta charset="UTF-8">
     <meta name="description" content="business-clicker">
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="5P4j0seWx1hFBUxqGHIYh0duZKIakgo3L8MP8__AbhI" />
-  <title>Gold Clicker</title>
-  </head>
-  <body onload="text()">
-    <p id="p"></p>
-    <a id="a" href="./code/gold.html">Gold-Clicker</a>
-    <script type="text/javascript">
-      document.getGetElementById("a").style.display = "none";
-      const i = 0;
-      const text = "Looking for gold clicker, click the link below to go to Gold Clicker.";
-      const speed = 50;
-      function text() {
-       if(i < text.length) {
-        document.getElementById("p").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(text, speed);
-        setTimeout(document.getGetElementById("a").style.display = "block", 10000);
-       }
-      }
-    </script>
+    <title>Gold Clicker</title>
+    <!--
+    
+    TODO:
+      -Save and Reload
+      -Tabs
+      -7 more items
+      -Achievements
+      -About Page
+    
+    -->
+    </head>
+    <body id="body" onbeforeunload="warn()">
+      
+      <div id="save">
+         <p id="p"></p>
+    <h1 id="start">Start Clicking</h1>
+    
+    <h1 id="counter">0</h1>
+  <div id="mBorder"></div>
+    <hr class="invis">
+    <hr class="invis">
+    <div style="width:100%;height:30px;overflow:contain;">
+    </div>
+    <hr>
+    <hr class="invis">
+    
+    
+  <div id="case">
+    <button id="Dollar" onkeydown="upFunction()" onclick="upFunction()">G</button>
+    <h2 id="add"></h2>
+  </div>
+  <hr class="invis">
+ 
+  <p>This game was created by ScM31, visit my Github Page in the link below.</p>
+        <a target="_blank" href="https://scm31.github.io/scM31-page/">My Github Page</a>
+  <hr class="invis">
+  <hr class="invis">
+  <hr>
+         <div class="tabCase" style="display:none;">
+            <button class="tabButton" onclick="achievement()">Achievements</button>
+              
+         
+         
+         
+         </div>
+  <div id="bigCase" class="tabcontent">
+    <div id="store" class="divBars">
+       <div id="upgrades">
+       <h1>&nbsp;Upgrades</h1>
+       <hr>
+      <button id="cell" class="sItem" onclick="cellCursor()">
+        <p class="price" id="celp">G1000000</p>
+        <img src="./images/cell.jpeg" alt="cell-cursor" style="width:50px;height:50px;">&nbsp;
+        Cursor Upgrade: Cell
+      </button>
+      <hr>
+      <button id="seeno" class="sItem" onclick="BabySeeno()">
+         <p class="price" style="font-size:15px;">1 worker and 1 lemonade</p>
+         <img src="./images/baby-seeno.jpeg" alt="seeno" style="width: 50px;height:50px;">
+         Worker Upgrade: Baby Seeno                                              
+      </button>
+      <hr>
+       </div>
+       <hr>
+      <h1>&nbsp;Store</h1>
+      <hr>
+
+      <button id="lemonade" class="sItem" onclick="lemonade()">
+        <p class="price" id="lp">G10</p>
+        <img src="./images/lemonade.jpeg" alt="lemonade" style="width:50px;height:50px;">&nbsp;Lemonade
+      </button>
+      <hr>
+      <button id="brownie" class="sItem" onclick="brownie()">
+        <p class="price" id="bp">G50</p>
+        <img src="./images/brownie.jpeg" alt="brownie" style="width:50px;height:50px">&nbsp;Brownie
+      </button>
+      <hr>
+      <button id="wallet" class="sItem" onclick="wallet()">
+        <p class="price" id="walp">G100</p>
+        <img src="./images/wallet.jpeg" alt="wallet" style="width:75px;height:75px">&nbsp;Wallet
+      </button>
+      <hr>
+      <button id="worker" class="sItem" onclick="worker()">
+        <p class="price" id="worp">G500</p>
+        <img src="./images/worker.jpeg" alt="worker" style="width:70px;height:70px;">&nbsp;Worker
+      </button>
+      <hr>
+      <button id="goldBar" class="sItem" onclick="goldBar()">
+        <p class="price" id="gp">G1000</p>
+        <img src="./images/gold-bar.jpeg" alt="gold-bar" style="width:70px;height:70px;">&nbsp;Gold Bar
+      </button>
+      <hr>
+      <button id="crypto" class="sItem" onclick="crypto()">
+        <p class="price" id="cryp">G5000</p>
+        <img src="./images/crypto.jpeg" alt="crypto" style="width:50px;height:50px;">&nbsp;
+        Crypto
+      </button>
+      <hr>
+      <button class="sItem" style="background-color:red;color:white;font-family:serif;" id="bubblegum" onclick="bubblegum()">
+        <p class="price" id="gum">G10000</p>
+        <img src="./images/bubble-gum.jpeg" alt="gum" style="width:50px;height:50px;">&nbsp;
+        OP bUBble gUM
+      </button>
+      <hr><!--
+       <button class="sItem" id="thief" onclick="thief()">
+          <p class="price" id="thip">G50000</p>
+          <img src="./images/thief.jpeg" alt="thief" style="width:75px;height:75px;">&nbsp;
+          Thief
+       </button>
+-->
+     </div>
+    <div id="items" class="divBars">
+       <h1>&nbsp;UpG Info</h1>
+       <hr>
+       <div id="icellc">
+          <p id="cellc">&nbsp;Cell Cursor is an upgrade and cannot be repurchased.<br>
+          &nbsp;+100 Gold per Click,<br>&nbsp;"Hacks into the code of the game <br>&nbsp;JUST to change the look of the cursor. Oh and also &nbsp;makes the game easier."</p>
+        </div>
+       <hr>
+       <div id="iseeno">
+          <p id="bseeno">&nbsp;Baby Seeno is an upgrade and cannot be repurchased.<br>
+             &nbsp;+The Ammount of lemonades and workers GpS,<br>
+             &nbsp;"Baby Seeno doin' work!"</p>
+       </div>
+       <hr>
+        <h1>&nbsp;Item Info</h1>
+        <hr>
+        <div id="ilemonade">
+        <p id="lem">&nbsp;Lemonades: 0</p>
+        <p id="lemPrice">&nbsp;Cost in Gold: 30</p>
+        <p>&nbsp;+0.1 GpS "Classic Money Making Machine"</p>
+        </div>
+        <hr>
+        <div id="ibrownie">
+        <p id="brow">&nbsp;Brownies: 0</p>
+        <p id="browPrice">&nbsp;Cost in Gold: 120</p>
+        <p>&nbsp;+1 GpS "No nuts included, we're nice"</p>
+        </div>
+        <hr>
+        <div id="iwallet">
+          <p id="wall">&nbsp;Wallets: 0</p>
+          <p id="wallPrice">&nbsp;Cost in Gold: 200</p>
+          <p>&nbsp;Increases item cost for items less than Wallet (lemonade and brownie) X2
+          <br>&nbsp;+10 GpM
+          <br>&nbsp;"Wallets cost so much these days.."</p>
+        </div>
+        <hr>
+        <div id="iworker">
+          <p id="work">&nbsp;Workers: 0</p>
+          <p id="workPrice">&nbsp;Cost in Gold: 70000</p>
+          <p>&nbsp;+2 GpS "70,000 a year, nothing compared to you."</p>
+        </div>
+        <hr>
+        <div id="igold">
+          <p id="gold">&nbsp;Gold Bars: 0</p>
+          <p id="goldPrice">&nbsp;Cost in Gold: 1000000</p>
+          <p>&nbsp;Has random Gold Per Second and random Gold per Click</p>
+          <p>&nbsp;+Random GpS "Buying money for money, *dissapointment*"</p>
+        </div>
+        <hr>
+        <div id="icrypto">
+          <p id="cry">&nbsp;Crypto Currencies: 0</p>
+          <p id="cryPrice">&nbsp;Cost in Gold: 10000000</p>
+          <p>&nbsp;+1% of your money per second<br>
+          &nbsp;+10% of Gold per Click<br>
+          &nbsp;"Gold Bar v2.0 :("</p>
+        </div>
+        <hr><!--
+        <div id="ithief">
+           <p id="thi">&nbsp;Thieves: 0</p>
+           <p id="thiefPrice">&nbsp;Cost in Gold: 100000000</p>
+           <p>&nbsp;+50% Money made Using Workers GpS</p>
+           <p>&nbsp;-5% of your money per second</p>
+           <p>&nbsp;"Steal from the poor and give to the rich??"</p>
+       </div>
+       <hr>
+-->
+    </div>
+    
+    <div id="stats" class="divBars">
+      <h1>&nbsp;Stats</h1>
+      <hr>
+      <p id="cps"></p>
+      <p id="val"></p>
+    </div>
+  </div>
+</div>
+       <script type="text/javascript" src="./code/script.js"></script>
+       <script type="text/javascript" src="./code/store.js"></script>
+       <script type="text/javascript" src="./code/upgrades.js"></script>
+       <script type="text/javascript" src="./code/achieve.js"></script>
+       <script type="text/javascript" src="./code/tab.js"></script>
+       <script type="text/javascript">
+          
+       </script>
   </body>
-<html>
+</html>
