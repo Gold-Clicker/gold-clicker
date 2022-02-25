@@ -2,12 +2,13 @@ function warn() {
   return "WARNING: You will lose your progress:";
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-let val = 0;
+let val = 999999999;
 let add = 1;
 
 function upFunction() {
   val += add;
-  document.getElementById("add").innerHTML = add;
+  add += 0.01;
+  document.getElementById("add").innerHTML = Math.round(add);
   setTimeout(fade, 100);
   function fade() {
     document.getElementById("add").innerHTML = " ";
@@ -19,6 +20,7 @@ function update() {
   document.getElementById("counter").innerHTML = Math.round(val);
 }
 //Silly Messages
+const start = document.getElementById("start");
 setInterval(one, 0.0000000000000000000000000000000000000000000000000001);
 function one() {
   if (val >= 1 && val < 100) {
@@ -72,21 +74,25 @@ function tenMillion() {
     document.getElementById("start").style.color = "orange";
   }
 }
+
+setInterval(hMillion, 100);
+function hMillion() {
+   if(val >= 100000000 && val <= 1000000000) {
+      document.getElementById("start").innerHTML = "One...Hundred...Million...";
+      document.getElementById("start").style.color = "#1fdbd5";
+   }
+}
+
+setInterval(BILLION, 100);
+function BILLION() {
+   if(val >= 1000000000 && val <= 10000000000) {
+      start.innerHTML = "Great Job, One Billion *Happiness*"
+      start.style.color = "red";
+   }
+}
 //Stats
 setInterval(stats, 100);
 function stats() {
   document.getElementById("cps").innerHTML = "&nbsp;Gold per click: " + add;
   document.getElementById("val").innerHTML = "&nbsp;Gold Made Currently: " + val;
-}
-//Store TABS
-let newsVal = 0;
-let News = "&nbsp;What's New? (Alpha 1):<br>&nbsp;&nbsp;-Item Prices Are HIGHER<br>&nbsp;&nbsp;-This Update Tab<br>&nbsp;&nbsp;-Style fixed (Wallet Still not fixed)<br>&nbsp;&nbsp;-Shows Gold per Click when you click on the G<br>&nbsp;&nbsp;-Gold button is Gold and says G<br>&nbsp;What will be in the NEXT UPDATE (Alpha 2):<br>&nbsp;&nbsp;-Fix Wallet Button&nbsp;&nbsp;-Tabs instead of split-screen<br>&nbsp;&nbsp;-More Items<br>&nbsp;&nbsp;-Achievements<br>";
-function showNews() {
-  if(newsVal <= 0) {
-    document.getElementById("Updates").innerHTML = News;
-    newsVal = 1;
-  } else {
-    document.getElementById("Updates").innerHTML = " ";
-    newsVal = 0;
-  }
 }
