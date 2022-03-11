@@ -32,6 +32,7 @@ function BabySeeno() {
       lem -= 1;
       work -= 1;
       seeno += 1;
+      lemPrice /= 2;
       add += lem + work;
       document.getElementById("seeno").style.display = "none";
       document.getElementById("iseeno").style.display = "block";
@@ -49,3 +50,18 @@ function seenoRun() {
       document.getElementById("seeno").style.display = "none";
    }
 }
+//!Earth?: A whopping TW0 W0R1D WARS; increases prducti0n during w0r1d wars
+/*
+let earth = 0;
+let earthPrice = 5000000000000000;
+function enslave_the_earth() {
+  if(val > earthPrice) {
+    val = 0;
+    earth = 1;
+    document.getElementById("earth").style.display = "none";
+    setInterval(up, 1000);
+  }
+  function up() {
+    val += infinite;
+  }
+}*/
