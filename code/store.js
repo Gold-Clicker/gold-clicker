@@ -6,18 +6,15 @@ function lemonade() {
     lem += 1;
     val -= lemPrice;
     lemPrice += lemPrice / 10;
-    setInterval(lemRun, 1000);
     setInterval(price, 1);
     document.getElementById("lem").innerHTML = "&nbsp;Lemonades: " + lem;
     document.getElementById("lemPrice").innerHTML = "&nbsp;Cost in Gold: " + Math.round(lemPrice);
-  }
-  function lemRun() {
-    val += 0.1;
   }
   function price() {
     document.getElementById("lemPrice").innerHTML = "&nbsp;Cost in Gold: " + Math.round(lemPrice);
   }
 }
+
 setInterval(searchLem, 100);
 function searchLem() {
   if(val < lemPrice) {
@@ -33,7 +30,7 @@ function searchLem() {
 }
 //Brownies
 let brow = 0;
-let browPrice = 50;
+let browPrice = 100;
 function brownie() {
   if (val >= browPrice) {
     brow += 1;
@@ -41,11 +38,7 @@ function brownie() {
     browPrice += browPrice / 10;
     document.getElementById("brow").innerHTML = "&nbsp;Brownies: " + brow;
     document.getElementById("browPrice").innerHTML = "&nbsp;Cost in Gold: " + Math.round(browPrice);
-    setInterval(browRun, 1000);
     setInterval(price, 1);
-  }
-  function browRun() {
-    val += 1;
   }
   function price() {
     document.getElementById("browPrice").innerHTML = "&nbsp;Cost in Gold: " + Math.round(browPrice);
@@ -66,9 +59,10 @@ function searchBrow() {
 }
 //Wallets
 let wall = 0;
-let wallPrice = 100;
+let wallPrice = 5000;
 function wallet() {
   if(val >= wallPrice) {
+    secondaryPowers();
     val -= wallPrice;
     wall += 1;
     wallPrice += wallPrice / 10;
@@ -77,11 +71,7 @@ function wallet() {
     add += 6;
     document.getElementById("wall").innerHTML = "&nbsp;Wallets: " + wall;
     document.getElementById("wallPrice").innerHTML = "&nbsp;Cost in Gold: " + Math.round(wallPrice);
-    setInterval(wallRun, 60000);
     setInterval(price, 1);
-  }
-  function wallRun() {
-    val += 10;
   }
   function price() {
     document.getElementById("wallPrice").innerHTML = "&nbsp;Cost in Gold: " + Math.round(wallPrice);
@@ -102,19 +92,15 @@ function searchWall() {
 }
 //Workers
 let work = 0;
-let workPrice = 500;
+let workPrice = 10000;
 function worker() {
   if(val >= workPrice) {
     work += 1;
     val -= workPrice;
     workPrice += workPrice / 10;
-    setInterval(workRun, 1000);
     setInterval(price, 1);
     document.getElementById("work").innerHTML = "&nbsp;Workers: " + work;
     document.getElementById("workPrice").innerHTML = "&nbsp;Cost in Gold: " + workPrice;
-  }
-  function workRun() {
-    val += 2;
   }
   function price() {
     document.getElementById("workPrice").innerHTML = "&nbsp;Cost in Gold: " + workPrice;
@@ -135,19 +121,16 @@ function searchWork() {
 }
 //Gold Bars
 let gold = 0;
-let goldPrice = 1000;
+let goldPrice = 50000;
 function goldBar() {
   if(val >= goldPrice) {
+    secondaryPowers();
     add += Math.round(Math.random() * 11) + 1;
     val -= goldPrice;
     gold += 1;
     goldPrice += goldPrice / 10;
-    setInterval(goldRun, 1000);
     setInterval(price, 1);
     document.getElementById("gold").innerHTML = "&nbsp;Gold Bars: " + gold;
-  }
-  function goldRun() {
-    val += Math.round(Math.random() * 101) + 1;
   }
   function price() {
    document.getElementById("goldPrice").innerHTML = "&nbsp;Cost in Gold: " + goldPrice;
@@ -168,22 +151,19 @@ function searchGold() {
 }
 //Crypto
 let cry = 0;
-let cryPrice = 10000;
+let cryPrice = 100000;
 function crypto() {
   if(val >= cryPrice) {
+    secondaryPowers();
     add += add / 10;
     val -= cryPrice;
     cry += 1;
-    cryPrice -= 10
-    setInterval(cryRun, 1000)
+    cryPrice -= 10;
     setInterval(price, 100);
     document.getElementById("cry").innerHTML = "&nbsp;Crypto Currencies: " + cry;
   }
   function price() {
     document.getElementById("cryPrice").innerHTML = "&nbsp;Cost in Gold: " + cryPrice;
-  }
-  function cryRun() {
-    val += val / 100;
   }
 }
 setInterval(searchCry, 100);
@@ -199,44 +179,16 @@ function searchCry() {
     document.getElementById("icrypto").style.display = "block";
   }
 }
-//bubble gum
-let gum = 0;
-let gumPrice = 10000;
-function bubblegum() {
-  if(val >= gumPrice) {
-    const sure = window.confirm("Are you sure you want too buy this Item?");
-    if(sure) {
-    gumPrice += gumPrice * gumPrice;
-    val -= val * val;
-    gum += 1;
-    document.getElementById("start").innerHTML = "Negative Money, Is that even possible??!?!?!?!?!?!"
-    document.getElementById("bubblegum").style.display = "none"
-    } else {
-      document.getElementById("start").innerHTML = "Safely avoided unmeasurable apocalypse."
-  }
-  }
-}
-setInterval(searchGum, 100);
-function searchGum() {
-  if(val < gumPrice) {
-    document.getElementById("bubblegum").style.display = "none";
-  }
-}
 //Thief
-/*
-let thief = 0;
-let thiefPrice = 50000;
+let thieves = 0;
+let thiefPrice = 150000;
 function thief() {
    if(val >= thiefPrice) {
       val -= thiefPrice;
-      thief += 1;
+      thieves += 1;
       thiefPrice += thiefPrice / 10;
-      setInterval(thiefRun, 1000);
       setInterval(price, 100);
-      document.getElementById("thi").innerHTML = "Thieves: " + thief;
-   }
-   function thiefRun() {
-      va -= va           l
+      document.getElementById("thi").innerHTML = "Thieves: " + thieves;
    }
    function price() {
       document.getElementById("thiefPrice").innerHTML = "Cost in Gold: " + thiefPrice;
@@ -249,13 +201,42 @@ function searchThi() {
   } else {
     document.getElementById("thief").style.display = "block";
   }
-  if(thief < 1) {
+  if(thieves < 1) {
     document.getElementById("ithief").style.display = "none";
   } else {
     document.getElementById("ithief").style.display = "block";
   }
 }
-*/
+//Stock
+let stok = 0;
+let stockPrice = 375000;
+function stock() {
+  if(val >= stockPrice) {
+    secondaryPowers();
+    val -= stockPrice;
+    stok += 1;
+    add += add / 10;
+    stockPrice += stockPrice / 10;
+    document.getElementById("sto").innerHTML = "&nbsp;Stocks: " + stok;
+    setInterval(price, 100);
+  }
+  function price() {
+    document.getElementById("stockPrice").innerHTML = "Cost in Gold: " + stockPrice;
+  }
+}
+setInterval(searchStock, 100);
+function searchStock() {
+  if(val < stockPrice) {
+    document.getElementById("stock").style.display = "none";
+  } else {
+    document.getElementById("stock").style.display = "block";
+  }
+  if(stok < 1) {
+    document.getElementById("istock").style.display = "none";
+  } else {
+    document.getElementById("istock").style.display = "block";
+  }
+}
 //Price Tags
 setInterval(Price, 100);
 function Price() {
@@ -266,5 +247,6 @@ function Price() {
   document.getElementById("gp").innerHTML = "G" + Math.round(goldPrice);
   document.getElementById("celp").innerHTML = "G" + Math.round(cellPrice);
   document.getElementById("cryp").innerHTML = "G" + Math.round(cryPrice);
-  document.getElementById("thip").innerHTML = "G" + Math.round(thiefPrice); 
+  document.getElementById("thip").innerHTML = "G" + Math.round(thiefPrice);
+  document.getElementById("stoPrice").innerHTML = "G" + Math.round(stockPrice);
 }
