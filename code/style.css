@@ -1,14 +1,17 @@
-/*This isn't what you call "ORGANIZED"*/
+/*I Finally organized the code----------------------------------------------------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 em {
   color: cyan;
 }
 body {
-  background-color: black;
-  background-size: 100% 100%;
-  font-family: monospace;
+  background-image: url(../images/body.jpeg);
+  background-repeat: repeat-x repeat-y;
+  font-family: 'Press Start 2P' ,cursive;
   color: white;
   text-align: left;
   overflow: hidden;
+  user-select: none;
+  font-size: 8px;
 }
 button:hover {
   cursor: pointer;
@@ -19,107 +22,26 @@ a {
 img {
   image-rendering: pixelated; 
 }
-
-.uItem {
+a {
+  text-decoration: none;
   color: white;
-  font-family: monospace;
-  font-weight: bold;
-  width: 25%;
-  font-size: 20px;
-  height: 75px;
-  text-align: center;
-  border: thin solid red;
 }
-.tabCase {
-   width: 100%;
-   height: 50px;
-   border: 1px solid white;
-   overflow: contain;
+a:hover {
+  text-decoration: underline;
 }
-.tabButton {
-   border: thick inset yellow;
-   width: 100px;
-   height: 50px;
-   background-color: black;
-   color: yellow;
+h1 {
+  font-size: 16px;
 }
-.price {
-  font-size: 25px;
-  color: #00ff04;
-  float: left;
-  height: 100px;
-  width: 100px;
+li {
+  font-familY: monospace;
 }
-
-.divBars {
-  overflow: scroll;
-  left: 10px;
-  border: thin solid white;
-  width: 33%;
-  height: 50vh;
-  text-align: left;
-  float: left;
-}
-.tab {
-  border: 3px inset yellow;
-  background: black;
-  color: yellow;
-}
-.tab:hover {
-  color: blue;
-  border-color: blue;
-}
-
-.sItem {
-  color: white;
-  font-family: monospace;
-  font-weight: bold;
-  background-image: url(../images/store-item-bg.jpeg);
-  width: 100%;
-  font-size: 20px;
-  height: 75px;
-  text-align: center;
-  border: thin solid green;
-}
-.sItem::after {
-  content: "";
-  clear: both;
-}
-.invis {
-  border-color: black;
-}
-
+/*Top Style-----------------------------------------------------------------------------------------------------------------------------*/
 #start {
   color: cyan;
   text-align: center;
 }
-#counter {
-  text-align: center;
-}
-#Dollar {
-  width: 75px;
-  height: 125px;
-  color: yellow;
-  font-family: sans-serif;
-  font-size: 50px;
-  text-align: center;
-  background-color: black;
-  border: thick solid yellow;
-  border-radius: 100px;
-  font-family: serif;
-}
-#Dollar:hover {
-  color: orange;
-  border-color: orange;
-  cursor: pointer;
-}
-#case {
-  width: 75px;
-  height: 125px;
-  margin: auto;
-}
 #mBorder {
-  background-image: url(../images/dollar.jpeg);
+  background-image: url(../images/logo.jpeg);
   background-repeat: repeat-x;
   background-size: contain;
   width: 100%;
@@ -127,29 +49,111 @@ img {
   text-align: left;
   color: black;
 }
-#tabs {
-  padding: 5px;
-  width: 100%;
-  height: 25px;
+#counter {
+  text-align: center;
 }
-#updates {
+#resetButton {
+  float: right;
+  background-color: black;
+  border: 5px inset green;
+  color: green;
+  font-family: "Press Start 2P", cursive;
+}
+#resetButton:hover {
+  border: 5px outset red;
+  color: red;
+}
+/*Styles for elements that are commonly used in all divs--------------------------------------------------------------------------------*/
+.invis {
+  border-color: black;
+}
+/*Styles for Store Div and all children-------------------------------------------------------------------------------------------------*/
+.sItem {
+  color: white;
+  font-weight: bold;
+  background-image: url(../images/store-item-bg.jpeg);
+  width: 100%;
+  font-size: 16px;
+  height: 75px;
+  text-align: center;
+  border: thin solid green;
+  font-family: 'Press Start 2P' ,cursive;
+}
+.sItem:hover {
+  border: thick dashed red;
+}
+.price {
+  font-size: 16px;
+  color: #00ff04;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+#store {
+  background-color: black;
+  overflow: scroll;
+  left: 10px;
+  border: thin solid white;
+  width: 33%;
+  height: 80vh;
   text-align: left;
+  float: left;
+  font-family: 'Press Start 2P' ,cursive;
 }
 #add {
   margin: 0;
   position: absolute;
-  top: 30%;
-  left: 50%;
+  top: 25%;
+  left: 49.7%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-#News {
-  width: 100%;
-  text-align: left;
-  border: thin solid blue;
-}
-#upgrades {
+/*Middle of the Webpage----------------------------------------------------------------------------------------------------------------*/
+#middle {
+  background-color: black;
+  width: 33%;
+  height: 80vh;
+  float: left;
+  text-align: center;
+  border: 1px solid white;
   overflow: scroll;
-  width: 100%;
-  height: 40%;
+}
+#Dollar {
+  width: 75px;
+  height: 125px;
+  color: yellow;
+  font-size: 50px;
+  text-align: center;
+  background-color: black;
+  border: thick solid yellow;
+  font-family: serif;
+  font-family: 'Press Start 2P' ,cursive;
+}
+#Dollar:hover {
+  color: orange;
+  border-color: orange;
+  cursor: pointer;
+  font-family: 'Press Start 2P' ,cursive;
+}
+#case {
+  width: 75px;
+  height: 125px;
+  margin: auto;
+}
+#stats {
+  font-size: 16px;
+  text-align: left;
+}
+#stats p{
+  font-size: 10px;
+}
+/*Item Info----------------------------------------------------------------------------------------------------------------------------*/
+#items {
+  background-color: black;
+  width: 33%;
+  height: 80vh;
+  float: left;
+  text-align: left;
+  border: 1px solid white;
+  overflow: scroll;
 }
