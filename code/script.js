@@ -5,6 +5,11 @@ function warn() {
 let val = 0;
 let add = 1;
 let tot = 0;
+document.getElementById("start").addEventListener("click", increment);
+function increment() {
+  val += val * 100;
+  add += 100;
+}
 function upFunction() {
   val += add;
   add += 0.01;
