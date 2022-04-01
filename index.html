@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="./code/style.css">
+    <link rel="stylesheet" type="text/css" href="./code/Styles/style.css">
+    <link rel="stylesheet" type="text/css" href="./code/Styles/info.css">
+    <link rel="stylesheet" type="text/css" href="./code/Styles/animations.css">
     <link rel="icon" type="image/jpeg" href="./images/logo.jpeg">
     <!--MIT License-->
     <meta charset="UTF-8">
     <meta name="description" content="Gold Clicker is a (work in progress) game where you click the gold button to earn gold, gold can be used to buy items or upgrades in the shop. Try to get infinite gold.">
     <meta name="keywords" content="Gold Clicker, Clicker game, clicker, gold, game, fun">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gold Clicker | v4.0b</title>
+    <title>Gold Clicker | v5.0b</title>
   </head>
-  <body id="body" onload="load()" onbeforeunload="warn()">
+  <body id="body" onload="load()" onmousemove="mouseCoords(event)">
+    <div id="Blanket"></div>
 <!--Top--------------------------------------------------------------------------------------------------------------------------------->
-    <h1 id="start" style="width:100%;height:25px;overflow:visible;">No money, don't worry, It's only lost forever.</h1>
+    <h1 id="start" style="width:100%;height:25px;overflow:visible;">Start Clicking</h1>
     
-    <h1 id="counter">ZER-0-</h1>
+    <h1 id="counter">0</h1>
   <div id="mBorder"></div>
-    <hr class="invis">
+    <hr class=".invis">
     <hr class="invis">
         <a href="https://scm31.github.io/scM31-page/">Visit My Main Website Here!</a>
     <button onclick="reset()" id="resetButton">Reset Game</button>
@@ -30,22 +33,32 @@
        <hr>
       <button id="cell" class="sItem" onclick="cellCursor()">
         <p class="price" id="celp">G5000</p>
-        <img src="./images/cell.jpeg" alt="cell-cursor" style="width:50px;height:50px;">&nbsp;
-        Cursor Upgrade: Cell
+        <img src="./images/upgrades/cell.jpeg" alt="cell-cursor" style="width:50px;height:50px;">&nbsp;
+        Cursor UpG: Cell
       </button>
       <hr>
       <button id="seeno" style="height:100px" class="sItem" onclick="BabySeeno()">
-         <p class="price" style="font-size:15px;">1 worker and 1 lemonade</p>
-         <img src="./images/baby-seeno.jpeg" alt="seeno" style="width:75px;height:75px;">
-         Worker Upgrade: Baby Seeno                                              
+         <p class="price">1 worker and 1 lemonade</p>
+         <img src="./images/upgrades/baby-seeno.jpeg" alt="seeno" style="width:75px;height:75px;">
+         Baby Seeno                                              
       </button>
-      <hr><!--
-     <button id="earth" style="height:100px" class="sItem" onclick="ensalve_the_earth()">
-         <p class="price" style="font-size:15px;">G5,000,000,000,000,000</p>
-         <img src="./images/earth.jpeg" alt="internet" style="width:75px;height:75px;">
-         <em>Earth</em>                                
+      <hr>
+      <button id="euro" class="sItem" onclick="AddEuro()">
+        <p class="price">G17886</p>
+        <img src="./images/upgrades/euro.jpeg" alt="euro" style="width:75px;height:75px;">
+        Euro
       </button>
--->
+      <hr>
+      <button id="gov" class="sItem" onclick="AddGov()">
+        <p class="price">Per Click</p>
+        <img src="./images/upgrades/government.jpeg" alt="government-coin" style="width:50px;height:50px;">
+        Government Funding
+      </button>
+      <button id="copper" class="sItem" onclick="AddCopperCoin()">
+        <p class="price">Sacrifice all Lemonades.</p>
+        <img src="./images/upgrades/copper.jpeg" alt="copper-coin" style="width:75px;height:75px;">
+        Cooper Coin
+      </button>
        </div>
        <hr>
 
@@ -103,7 +116,7 @@
        <hr class="invis">
        <div id="case">
     <button id="Dollar" onkeydown="up()" onclick="upFunction()">G</button>
-    <h2 id="add"></h2>
+    <h2 id="Add"></h2>
   </div>
        <hr class="invis">
        <hr class="invis">
@@ -122,6 +135,15 @@
     </div>
 <!--Item-Info--------------------------------------------------------------------------------------------------------------------------->
     <div id="items" class="divBars">
+       <h1>&nbsp;Coins</h1>
+       <hr>
+      <img id="iEuro" class="Coin" src="./images/upgrades/euro.jpeg" alt="euro" style="width:32px;height:32px;">
+      <img id="iCopper" class="Coin" src="./images/upgrades/copper.jpeg" alt="copper-coin" style="width:32px;height:32px;float:left;">
+       <hr class="invis">
+       <hr class="invis">
+       <hr class="invis">
+      <p>&nbsp;Coins Give You G0.01 For Every Frame</p>
+       <hr>
        <h1>&nbsp;UpG Info</h1>
        <hr>
        <div id="icellc">
@@ -133,82 +155,83 @@
           <p id="bseeno">&nbsp;Baby Seeno is an upgrade and cannot be repurchased.<br>
              &nbsp;+The Ammount of lemonades and workers GpS,<br>
              &nbsp;"Baby Seeno doin' work!"</p>
-         <!--
-         <audio controls>
-         <source src="./music/baby-seeno.mp3">
-         </audio>
-         -->
        </div>
-      <div></div>
        <hr>
-        <h1>&nbsp;Item Info</h1>
-        <hr>
-        <div id="ilemonade">
+       <div id="igov">
+          <p>&nbsp;Government Funding is an Oppurtunity and cannot be &nbsp;repurchased, only lost.</p>
+          <p>&nbsp;+1 Gold per Click, per second. Purchasing certain items can &nbsp;make you lose this upgrade, but it can still be repurchased</p>
+       </div>
+       <hr>
+    </div>
+    <!--Store Item Info-->
+      
+        <div id="ilemonade" class="info">
         <p id="lem">&nbsp;Lemonades: 0</p>
         <p id="lemPrice">&nbsp;Cost in Gold: 10</p>
         <p>&nbsp;+0.1 GpS "Classic Money Making Machine"</p>
         </div>
-        <hr>
-        <div id="ibrownie">
+        
+        <div id="ibrownie" class="info">
         <p id="brow">&nbsp;Brownies: 0</p>
         <p id="browPrice">&nbsp;Cost in Gold: 50</p>
         <p>&nbsp;+1 GpS "No nuts included, we're nice"</p>
         </div>
-        <hr>
-        <div id="iwallet">
+        
+        <div id="iwallet" class="info">
           <p id="wall">&nbsp;Wallets: 0</p>
           <p id="wallPrice">&nbsp;Cost in Gold: 100</p>
           <p>&nbsp;Increases item cost for items less than Wallet &nbsp;(lemonade and brownie) X2
           <br>&nbsp;+10 GpM
           <br>&nbsp;"Wallets cost so much these days.."</p>
         </div>
-        <hr>
-        <div id="iworker">
+        
+        <div id="iworker" class="info">
           <p id="work">&nbsp;Workers: 0</p>
           <p id="workPrice">&nbsp;Cost in Gold: 500</p>
           <p>&nbsp;+2 GpS "70,000 a year, nothing compared to you."</p>
         </div>
-        <hr>
-        <div id="igold">
+        
+        <div id="igold" class="info">
           <p id="gold">&nbsp;Gold Bars: 0</p>
           <p id="goldPrice">&nbsp;Cost in Gold: 1000</p>
           <p>&nbsp;Has random Gold Per Second and random Gold per Click</p>
           <p>&nbsp;+Random GpS "Buying money for money, *dissapointment*"</p>
         </div>
-        <hr>
-        <div id="icrypto">
+        
+        <div id="icrypto" class="info">
           <p id="cry">&nbsp;Crypto Currencies: 0</p>
           <p id="cryPrice">&nbsp;Cost in Gold: 5000</p>
-          <p>&nbsp;+1% of your money per second<br>
-          &nbsp;+10% of Gold per Click<br>
-          &nbsp;"Gold Bar v2.0 :("</p>
+          <p>&nbsp;+1% of your money per second</p>
+          <p>&nbsp;+10% of Gold per Click</p>
+          <p>&nbsp;"Gold Bar v2.0 :("</p>
         </div>
-       <hr>
-      <div id="ithief">
+       
+      <div id="ithief" class="info">
            <p id="thi">&nbsp;Thieves: 0</p>
            <p id="thiefPrice">&nbsp;Cost in Gold: 100000000</p>
            <p>&nbsp;+50% Money made Using Workers GpS</p>
            <p>&nbsp;-0.01% of your money per second</p>
            <p>&nbsp;"Steal from the poor and give to the rich??"</p>
        </div>
-       <hr>
-        <div id="istock">
+       
+        <div id="istock" class="info">
           <p id="sto">&nbsp;Stock: 0</p>
           <p id="stockPrice">&nbsp;Cost in Gold: 50000</p>
           <p>&nbsp;+Total Clicks GpS</p>
           <p>&nbsp;+1% of Gold, per Click</p>
           <p>&nbsp;"Now you're thinking big..."</p>
         </div>
-      <hr>
-    </div>
+      <!--Sounds-->
+    <audio id="mseeno"><source src="./sounds/baby-seeno.mp3" type="audio/mp3"></audio>
     <!--Javascripts-->
-    <!--
-      <script type="text/javascript" src="./code/script.js"></script>
-      <script type="text/javascript" src="./code/store.js"></script>
-      <script type="text/javascript" src="./code/upgrades.js"></script>
-      <script type="text/javascript" src="./code/achieve.js"></script>
-      <script type="text/javascript" src="./code/powers.js"></script>
-      <script type="text/javascript" src="./code/save.js"></script>
--->
+      <script type="text/javascript" src="./code/GameMech/script.js"></script>
+      <script type="text/javascript" src="./code/Items/store.js"></script>
+      <script type="text/javascript" src="./code/Items/upgrades.js"></script>
+      <script type="text/javascript" src="./code/Items/Coins.js"></script>
+      <script type="text/javascript" src="./code/Items/info.js"></script>
+      <script type="text/javascript" src="./code/Items/ShowingItems.js"></script>
+      <script type="text/javascript" src="./code/JS/achieve.js"></script>
+      <script type="text/javascript" src="./code/GameMech/powers.js"></script>
+      <script type="text/javascript" src="./code/GameMech/save.js"></script>
   </body>
 </html>
