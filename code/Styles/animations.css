@@ -1,0 +1,18 @@
+#Add {
+  margin: 0;
+  position: absolute;
+  top: 25%;
+  left: 49.7%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  transition: display 2s;
+}
+@keyframes fade-out {
+  from {opacity: 1;}
+  to   {opacity: 0;}
+}
+
+@keyframes fade-in {
+  from {opacity: 0;}
+  to   {opacity: 1;}
+}

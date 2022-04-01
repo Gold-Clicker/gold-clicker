@@ -1,0 +1,10 @@
+.info {
+  position: absolute;
+  left: 34%;
+  top: 30%;
+  border: 1px solid white;
+  background-color: black;
+  display: none;
+  width: 450px
+  white-space: nowrap;
+}
