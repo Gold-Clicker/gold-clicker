@@ -70,6 +70,29 @@ li {
   border: 5px outset red;
   color: red;
 }
+#inputCode {
+  width: 250px;
+	height: 20px;
+	resize: none;
+  color: white;
+	background: black;
+	border: 1px solid white;
+	border-radius: 5px;
+	position: absolute;
+	left: 230px;
+}
+
+#sub {
+	background: black;
+	border: 1px solid white;
+	border-radius: 5px;
+	position: absolute;
+  color: white;
+  left: 500px;
+}
+#sub:hover {
+	cursor: pointer;
+}
 /*Styles for elements that are commonly used in all divs--------------------------------------------------------------------------------*/
 .invis {
   border-color: black;
